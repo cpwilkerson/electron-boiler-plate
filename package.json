@@ -1,0 +1,84 @@
+{
+  "name": "boiler-plate",
+  "version": "0.9.0",
+  "description": "Basic electron-react-redux boiler plate",
+  "main": "main.js",
+  "scripts": {
+    "test": "nyc mocha --compilers js:babel-register test/*.test.js test/**/*.test.js",
+    "start": "electron -r babel-register .",
+    "stylus-watch": "stylus --watch ./src/*.styl --out ./css/styles.css",
+    "dev": "concurrently \"DEV=true npm start\" \"npm run stylus-watch\""
+  },
+  "repository": "",
+  "keywords": [
+    "electron",
+    "react",
+    "redux"
+  ],
+  "author": "Christian Wilkerson",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "electron",
+      "env",
+      "react"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "nyc": {
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
+    "include": [
+      "src/**"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "concurrently": "^3.5.0",
+    "electron": "~1.6.2",
+    "enzyme": "^2.9.1",
+    "ignore-styles": "^5.0.1",
+    "istanbul": "^0.4.5",
+    "jsdom": "^11.2.0",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
+    "sinon": "^3.3.0",
+    "sinon-as-promised": "^4.0.3",
+    "sinon-chai": "^2.13.0",
+    "stylus": "^0.54.5",
+    "supertest": "^3.0.0",
+    "webpack": "^3.6.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-preset-electron": "^1.4.15",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "react-dom": "^15.6.1",
+    "react-prop-types": "^0.4.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  }
+}
