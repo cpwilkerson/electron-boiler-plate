@@ -1,10 +1,16 @@
-boiler-plate
+electron-boiler-plate
 --
 
 This is an electron app that serves as a boiler plate app for electron.  It is 
 based on the electron-quick-start example. It incorporates react, and redux.  The
 idea is to take and copy this app and use it as a starting point for a real 
 application.
+
+## Installing the app
+To run boiler-plate:
+```bash
+$> npm install
+```
 
 ## Running the app
 To run boiler-plate:
