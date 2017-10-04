@@ -45,6 +45,8 @@ export function getCurrentWeather(dispatch, location) {
          (error) => {}).
     then((data) => {
       dispatch(weatherResult(data.data))
+    }).catch((err) => {
+      // console.error('Get weather error', err)
     })
   }
 }

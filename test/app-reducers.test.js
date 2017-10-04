@@ -6,4 +6,9 @@ describe('App Reducer tests', () => {
     const userNameTest = appReducer({}, {type: UPDATE_USER_NAME, userName: 'Han Solo'})
     expect(userNameTest.userName).to.equal('Han Solo')
   })
+
+  it('undefined type should return {}', () => {
+    const undefinedAction = appReducer({})
+    expect(JSON.stringify(undefinedAction)).to.equal(JSON.stringify({}))
+  })
 })

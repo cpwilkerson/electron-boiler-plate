@@ -38,6 +38,7 @@ class Weather extends React.Component {
         <div>
           <input type="text"
                 placeholder="Weather Location"
+                className="weather-location"
                 onChange={this.handleWeatherLocationChange} />
         </div>
         <button onClick={this.handleGetWeatherClick}
@@ -54,7 +55,7 @@ class Weather extends React.Component {
           <ul>Current temp: 
             <li>{this.convertCelsiusToFarenheit(this.props.weather.temperature)} f</li>
             <li>{this.props.weather.temperature} c</li>
-            <li>humidity: {this.props.weather.humidity}</li>
+            <li>humidity: <span className="humidity">{this.props.weather.humidity}</span></li>
           </ul>
         </div>
         <div>
