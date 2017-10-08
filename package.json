@@ -1,6 +1,6 @@
 {
   "name": "electron-boiler-plate",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "Basic electron-react-redux boiler plate",
   "main": "main.js",
   "scripts": {
