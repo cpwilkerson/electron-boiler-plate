@@ -48,7 +48,7 @@ describe('Weather component tests', (done) => {
   })
 
   after(() => {
-    global.fetch.restore
+    global.fetch.restore()
     weather.unmount()
   })
 
