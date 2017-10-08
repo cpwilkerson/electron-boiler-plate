@@ -2,13 +2,15 @@ import Weather from '../../src/comps/weather'
 import {appReducer} from '../../src/app-reducers'
 import {getCurrentWeather} from '../../src/app-actions'
 import React from 'react'
-import {mount} from 'enzyme'
+import {default as Enzyme, mount} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import {createStore, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import fetch from 'isomorphic-fetch'
 
 const sinon = global.sinon
+Enzyme.configure({ adapter: new Adapter() })
 
 const store = createStore(appReducer, applyMiddleware(thunk))
 

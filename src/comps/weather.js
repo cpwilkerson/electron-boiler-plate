@@ -1,5 +1,5 @@
 import React from 'react'
-import {PropTypes} from 'react-prop-types'
+import {PropTypes} from 'prop-types'
 import {connect} from 'react-redux'
 import {getCurrentWeather} from '../app-actions'
 
@@ -70,10 +70,10 @@ class Weather extends React.Component {
 }
 
 Weather.propTypes = {
-  userName: React.PropTypes.string,
-  weather: React.PropTypes.object,
-  gettingWeather: React.PropTypes.bool,
-  getWeather: React.PropTypes.func.isRequired
+  userName: PropTypes.string,
+  weather: PropTypes.object,
+  gettingWeather: PropTypes.bool,
+  getWeather: PropTypes.func.isRequired
 }
 
 Weather.defaultProps = {

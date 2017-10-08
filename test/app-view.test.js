@@ -1,11 +1,13 @@
 import AppView from '../src/app-view'
 import React from 'react'
-import {mount} from 'enzyme'
+import {default as Enzyme, mount} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import {appReducer} from '../src/app-reducers'
 
 const store = createStore(appReducer)
+Enzyme.configure({ adapter: new Adapter() })
 
 describe('AppView Tests', () => {
   let appview

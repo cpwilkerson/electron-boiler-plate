@@ -1,5 +1,5 @@
 import React from 'react'
-import {PropTypes} from 'react-prop-types'
+import {PropTypes} from 'prop-types'
 import {connect} from 'react-redux'
 
 class EditField extends React.Component {
@@ -26,8 +26,8 @@ class EditField extends React.Component {
 }
 
 EditField.propTypes = {
-  labelText: React.PropTypes.string.isRequired,
-  onTextChange: React.PropTypes.func.isRequired
+  labelText: PropTypes.string.isRequired,
+  onTextChange: PropTypes.func.isRequired
 }
 
 export default EditField

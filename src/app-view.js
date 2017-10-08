@@ -1,4 +1,5 @@
 import React from 'react'
+import {PropTypes} from 'prop-types'
 import {updateUserName, getCurrentWeather} from './app-actions'
 import EditField from './comps/edit-field' 
 import Weather from './comps/weather'
@@ -31,8 +32,8 @@ class AppView extends React.Component {
 }
 
 AppView.propTypes = {
-  userName: React.PropTypes.string,
-  onUserNameChange: React.PropTypes.func.isRequired
+  userName: PropTypes.string,
+  onUserNameChange: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
