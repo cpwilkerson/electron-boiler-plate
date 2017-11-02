@@ -32,9 +32,17 @@ class Weather extends React.Component {
 
   render() {
     const getting = this.props.gettingWeather ? 'Getting weather...' : 'Get Weather'
+    var weatherError = ''
+    if (this.props.error) {
+      weatherError = `Error: ${this.props.error}`
+    }
+    
     return (
       <div className="weather-comp">
-        Weather Component
+        Weather Component 
+        <div>
+          {weatherError}
+        </div>
         <div>
           <input type="text"
                 placeholder="Weather Location"
@@ -72,6 +80,7 @@ class Weather extends React.Component {
 Weather.propTypes = {
   userName: PropTypes.string,
   weather: PropTypes.object,
+  error: PropTypes.string,
   gettingWeather: PropTypes.bool,
   getWeather: PropTypes.func.isRequired
 }
@@ -79,7 +88,7 @@ Weather.propTypes = {
 Weather.defaultProps = {
   gettingWeather: false,
   weather: {
-    location: 'Riverside,CA'
+    location: 'Anywhere,USA'
   }
 }
 
@@ -87,7 +96,8 @@ function mapStateToProps(state, props) {
   return {
     userName: state.userName,
     weather: state.weather,
-    gettingWeather: state.gettingWeather
+    gettingWeather: state.gettingWeather,
+    error: state.error
   }
 }
 

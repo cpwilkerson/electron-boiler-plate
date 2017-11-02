@@ -1,4 +1,5 @@
-import {UPDATE_USER_NAME, WEATHER_RESULT, GETTING_WEATHER} from './app-actions'
+import {UPDATE_USER_NAME, WEATHER_RESULT, 
+        GETTING_WEATHER, WEATHER_ERROR} from './app-actions'
 
 const initialState = {}
 
@@ -12,6 +13,11 @@ export function appReducer(state = initialState, action) {
           gettingWeather: false,
           weather: action.weather
         })
+      case WEATHER_ERROR: 
+        return Object.assign({}, {
+          gettingWeather: false,
+          error: action.err
+        })  
       case GETTING_WEATHER:
         return Object.assign({}, {gettingWeather: true})
       default:

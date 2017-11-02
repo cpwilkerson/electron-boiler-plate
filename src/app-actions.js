@@ -5,6 +5,7 @@ export const UPDATE_USER_NAME = 'UPDATE_USER_NAME'
 export const GET_CURRENT_WEATHER = 'GET_CURRENT_WEATHER'
 export const GETTING_WEATHER = 'GETTING_WEATHER'
 export const WEATHER_RESULT = 'WEATHER_RESULT'
+export const WEATHER_ERROR = 'WEATHER_ERROR'
 
 export function updateUserName (value) {
   return {
@@ -27,6 +28,14 @@ export function weatherResult(weather) {
   }
 }
 
+export function weatherError(err) {
+  console.log('Weather Error', {err: err})
+  return {
+    type: WEATHER_ERROR,
+    err
+  }
+}
+
 const WEATHERS_URI = 'http://weathers.co/api.php?city='
 export function getCurrentWeather(dispatch, location) {
   let fetchURI = WEATHERS_URI + location
@@ -41,12 +50,17 @@ export function getCurrentWeather(dispatch, location) {
         'content-type': 'application/json'
       }
     }).
-    then((response) => response.json(),
-         (error) => {}).
-    then((data) => {
-      dispatch(weatherResult(data.data))
-    }).catch((err) => {
-      // console.error('Get weather error', err)
+    then((response) => {
+          if (response.status === 404) {
+            dispatch(weatherError(`404 ${response.statusText} - ${response.url}` ))
+            return
+          }
+          return response.json().then((data) => {
+            dispatch(weatherResult(data.data))
+          })
+      },
+        (error) => {}).catch((err) => {
+      // console.error('Get weather error', {err: err})
     })
   }
 }
