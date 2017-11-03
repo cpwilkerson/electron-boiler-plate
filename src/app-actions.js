@@ -29,7 +29,6 @@ export function weatherResult(weather) {
 }
 
 export function weatherError(err) {
-  console.log('Weather Error', {err: err})
   return {
     type: WEATHER_ERROR,
     err
